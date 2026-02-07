@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:history_simple_app/core/di/setup_injection.dart';
 import 'package:history_simple_app/feature/history/ui/pages/home/view_model/home_view_model.dart';
 
 import '../../components/components.dart';
@@ -10,7 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => HomeViewModel(),
+      create: (_) => getIt<HomeViewModel>(),
       child: const HomeView(),
     );
   }
