@@ -2,7 +2,7 @@
 
 Este aplicativo tem o intuito de mostrar fatos históricos de determinados anos usando a API: 
 ```
-https://history.muffinlabs.com/
+https://api.api-ninjas.com/v1/historicalevents
 ```
 
 ## Aplicativo

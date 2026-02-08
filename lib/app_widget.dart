@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:history_simple_app/core/theme/app_theme.dart';
+import 'package:history_simple_app/core/utils/routes/app_routes.dart';
 import 'package:history_simple_app/feature/history/ui/pages/pages.dart';
 
 class AppWidget extends StatelessWidget {
@@ -10,8 +11,13 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Fatos Históricos',
+      initialRoute: AppRoutes.HOME,
       theme: AppTheme.lightTheme,
-      home: HomePage(),
+      routes: {
+        AppRoutes.HOME: (context) => const HomePage(),
+        AppRoutes.RESULTS_SEARCH: (context) => const SearchResultPage(),
+        // AppRoutes.EVENT_DETAILS: (context) => const EventDetailsPage(),
+      },
     );
   }
 }
