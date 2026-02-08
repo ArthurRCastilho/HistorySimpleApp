@@ -73,4 +73,7 @@ void setupInjection() {
       historyRepository: getIt<HistoryRepository>(),
     ),
   );
+  getIt.registerFactory<HistoryDetailsViewModel>(
+    () => HistoryDetailsViewModel(),
+  );
 }

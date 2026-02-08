@@ -40,6 +40,12 @@ class HistoryServiceLocal {
     return events;
   }
 
+  Future<List<HistoryEvent>> readHistoriesByYear(String year) async {
+    final data = await _historyEventDao.readHistoryEventsByYear(year);
+    final events = data.map((d) => HistoryEventMapper.mapDpDataToModel(d)).toList();
+    return events;
+  }
+
   Future<int> insertRandomFacts(RandomFact fact) async {
     return await _randomFactsDao.insertRandomFact(fact);
   }

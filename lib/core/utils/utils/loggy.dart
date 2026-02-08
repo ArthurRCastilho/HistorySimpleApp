@@ -10,6 +10,11 @@ mixin ResultsViewModelLoggy implements LoggyType {
   Loggy<ResultsViewModelLoggy> get loggy => Loggy<ResultsViewModelLoggy>('Results ViewModel Loggy - $runtimeType');
 }
 
+mixin HistoryDetailsViewlModelLoggy implements LoggyType {
+  @override
+  Loggy<HistoryDetailsViewlModelLoggy> get loggy => Loggy<HistoryDetailsViewlModelLoggy>('History Details ViewModel Loggy - $runtimeType');
+}
+
 mixin HistoryRepositoryLoggy implements LoggyType {
   @override
   Loggy<HistoryRepositoryLoggy> get loggy => Loggy<HistoryRepositoryLoggy>('History Repository Loggy - $runtimeType');

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:history_simple_app/core/theme/app_colors.dart';
+import 'package:history_simple_app/core/utils/routes/app_routes.dart';
 import 'package:history_simple_app/feature/history/ui/components/custom_card.dart';
 
 class RecentlySearches extends StatelessWidget {
@@ -102,22 +103,27 @@ class _HistoryChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      decoration: BoxDecoration(
-        color: const Color(0xFFEBE3D5),
-        borderRadius: BorderRadius.circular(25),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            label,
-            style: const TextStyle(fontFamily: 'Serif', fontWeight: FontWeight.w500),
-          ),
-          const SizedBox(width: 6),
-          const Icon(Icons.layers_outlined, size: 14, color: Color(0xFFB8860B)),
-        ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(AppRoutes.RESULTS_SEARCH, arguments: label);
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        decoration: BoxDecoration(
+          color: const Color(0xFFEBE3D5),
+          borderRadius: BorderRadius.circular(25),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              label,
+              style: const TextStyle(fontFamily: 'Serif', fontWeight: FontWeight.w500),
+            ),
+            const SizedBox(width: 6),
+            const Icon(Icons.layers_outlined, size: 14, color: Color(0xFFB8860B)),
+          ],
+        ),
       ),
     );
   }

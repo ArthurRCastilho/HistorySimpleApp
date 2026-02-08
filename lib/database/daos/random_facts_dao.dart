@@ -14,6 +14,7 @@ class RandomFactsDao {
           db.RandomFactTableCompanion.insert(
             fact: fact.fact,
           ),
+          mode: InsertMode.insertOrIgnore,
         );
   }
 

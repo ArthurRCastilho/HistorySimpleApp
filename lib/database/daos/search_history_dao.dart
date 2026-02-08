@@ -10,6 +10,7 @@ class SearchHistoryDao {
         .into(_database.searchHistoryTable)
         .insert(
           db.SearchHistoryTableCompanion.insert(query: query),
+          mode: InsertMode.insertOrIgnore,
         );
   }
 

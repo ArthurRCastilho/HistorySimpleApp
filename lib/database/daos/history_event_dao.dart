@@ -17,6 +17,7 @@ class HistoryEventDao {
             day: history.day,
             event: history.event,
           ),
+          mode: InsertMode.insertOrIgnore,
         );
   }
 
@@ -27,5 +28,9 @@ class HistoryEventDao {
               ..limit(limit))
             .get();
     return events;
+  }
+
+  Future<List<db.HistoryEventTableData>> readHistoryEventsByYear(String year) async {
+    return await (_database.select(_database.historyEventTable)..where((t) => t.yearh.equals(year))).get();
   }
 }

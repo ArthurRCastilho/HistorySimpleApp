@@ -6,4 +6,9 @@ class HistoryEventTable extends Table {
   TextColumn get month => text()();
   TextColumn get day => text()();
   TextColumn get event => text()();
+
+  @override
+  List<Set<Column>> get uniqueKeys => [
+    {yearh, month, day, event},
+  ];
 }

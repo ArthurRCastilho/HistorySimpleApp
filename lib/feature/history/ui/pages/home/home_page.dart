@@ -112,9 +112,10 @@ class HomeView extends StatelessWidget {
             ),
           ),
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton.extended(
           onPressed: vm.newRandomFact,
-          child: const Icon(Icons.fact_check),
+          icon: Icon(Icons.fact_check),
+          label: Text('Gerar Fato Aleatório'),
         ),
       ),
     );

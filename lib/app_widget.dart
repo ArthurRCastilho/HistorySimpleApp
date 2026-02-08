@@ -11,12 +11,12 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Fatos Históricos',
-      initialRoute: AppRoutes.HOME,
       theme: AppTheme.lightTheme,
+      initialRoute: AppRoutes.HOME,
       routes: {
         AppRoutes.HOME: (context) => const HomePage(),
         AppRoutes.RESULTS_SEARCH: (context) => const SearchResultPage(),
-        // AppRoutes.EVENT_DETAILS: (context) => const EventDetailsPage(),
+        AppRoutes.EVENT_DETAILS: (context) => const HistoryDetailsPage(),
       },
     );
   }

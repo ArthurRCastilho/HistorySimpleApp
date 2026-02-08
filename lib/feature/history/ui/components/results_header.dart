@@ -6,11 +6,13 @@ class ResultsHeader extends StatelessWidget {
   const ResultsHeader({
     super.key,
     required this.year,
-    required this.events,
+    this.events,
+    this.isOnline = false,
   });
 
   final String year;
-  final List<HistoryEvent> events;
+  final List<HistoryEvent>? events;
+  final bool isOnline;
 
   @override
   Widget build(BuildContext context) {
@@ -25,33 +27,36 @@ class ResultsHeader extends StatelessWidget {
             },
             icon: Icon(Icons.arrow_back_ios_new),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                year,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-              ),
-              Row(
-                spacing: 8,
-                children: [
-                  Icon(
-                    Icons.storage_rounded,
-                    color: AppColors.secondaryColor,
-                  ),
-                  Text(
-                    'Do cache Local',
-                    style: TextStyle(color: AppColors.secondaryColor),
-                  ),
-                  Text(
-                    '${events.length} fatos',
-                    style: TextStyle(
-                      color: AppColors.textLightColor,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  year,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                ),
+                Row(
+                  spacing: 8,
+                  children: [
+                    Icon(
+                      isOnline ? Icons.cloud_done_rounded : Icons.storage_rounded,
+                      color: AppColors.secondaryColor,
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    Text(
+                      isOnline ? 'Buscado da internet' : 'Do cache Local',
+                      style: TextStyle(color: AppColors.secondaryColor),
+                    ),
+                    if (events != null && events!.isNotEmpty)
+                      Text(
+                        '${events!.length} fatos',
+                        style: TextStyle(
+                          color: AppColors.textLightColor,
+                        ),
+                      ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
