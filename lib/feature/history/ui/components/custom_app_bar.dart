@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:history_simple_app/core/theme/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  final String title;
+  final String subtitle;
+  const CustomAppBar({
+    super.key,
+    this.title = 'Fatos Históricos',
+    this.subtitle = 'Explore a história por ano',
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +38,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Fatos Históricos',
+                title,
                 style: TextStyle(
                   fontFamily: 'Serif',
                   fontSize: 24,
@@ -40,8 +46,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   color: const Color(0xFF2D2A26),
                 ),
               ),
-              const Text(
-                'Explore a história por ano',
+              Text(
+                subtitle,
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,

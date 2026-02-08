@@ -10,6 +10,7 @@ class HttpClient {
         connectTimeout: const Duration(seconds: 20),
         receiveTimeout: const Duration(seconds: 20),
         responseType: ResponseType.json,
+        headers: {'X-Api-Key': Env.ninjaApiKey},
       ),
     );
   }
